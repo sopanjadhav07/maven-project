@@ -56,4 +56,15 @@ withMaven(maven: 'Local_Maven')
 }
 } 
 }
+
+{
+stage ('deploy to tomcat'){
+
+steps {
+  sshagent (['172.31.39.232']) {
+    sh 'scp -o StrictHostKeyChecking=no -l **/*.war ec2-user@172.31.39.232:/var/lib/tomcat/webapps'
+  }
+}
+}
+}
 }
