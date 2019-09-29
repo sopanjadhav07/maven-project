@@ -3,9 +3,6 @@ pipeline
 
 agent any                                                                      
 
-stages
-{
-
 {
 	
 stage "scm checkout" 
@@ -13,7 +10,7 @@ stage "scm checkout"
 git 'https://github.com/sopanjadhav07/maven-project.git'	
 }
 
-}
+
 	
 stage "code test" 
 {
@@ -26,5 +23,5 @@ withMaven(maven: 'Local_Maven')
 }	 
 }
 }	
-} 
 }
+} 
