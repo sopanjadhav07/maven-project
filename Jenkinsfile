@@ -25,4 +25,19 @@ withMaven(maven: 'Local_Maven')
 }
 }	
 }
+
+{
+
+stage('code package') 
+{
+
+steps 
+{
+withMaven(maven: 'Local_Maven') 
+{
+     sh 'mvn package'
+}
+}
+} 
+}
 }
