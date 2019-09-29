@@ -40,4 +40,20 @@ withMaven(maven: 'Local_Maven')
 }
 } 
 }
+
+
+{
+
+stage('code install') 
+{
+
+steps 
+{
+withMaven(maven: 'Local_Maven') 
+{
+     sh 'mvn install'
+}
+}
+} 
+}
 }
