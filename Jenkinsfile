@@ -44,14 +44,14 @@ withMaven(maven: 'Local_Maven')
 
 {
 
-stage('code install') 
+stage('code deploy') 
 {
 
 steps 
 {
 withMaven(maven: 'Local_Maven') 
 {
-     sh 'mvn install'
+     sh 'mvn deploy'
 }
 }
 } 
