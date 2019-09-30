@@ -65,7 +65,7 @@ steps {
 }
 
 {
-stage ('Sonarqube dashboard data')
+stage ('Sonarqube analysis')
 
 steps {
      withSonarQubeEnv(sonar: 'sonar') {
