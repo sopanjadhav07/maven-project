@@ -67,4 +67,15 @@ steps {
 }
 }
 }
+
+{
+stage ('Sonarqube dashboard data')
+
+steps {
+     withSonarQubeEnv(sonar: 'sonar') {
+	 sh 'mvn clean install sonar:sonar'
+    
+}
+}
+}
 }
