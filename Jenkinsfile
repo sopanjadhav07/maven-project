@@ -65,11 +65,11 @@ steps {
 }
 
 {
-stage ('Sonarqube analysis')
+stage ('SonarQube analysis')
 
 steps {
      withSonarQubeEnv(sonar: 'sonar') {
-	 sh 'mvn clean install sonar:sonar'
+	 sh 'mvn install sonar:sonar'
     
 }
 }
