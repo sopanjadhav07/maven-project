@@ -1,77 +1,27 @@
-pipeline{
-
-agent any                                                                      
-
-stages
-{
-	stage ('scm checkout')
-{
-git 'https://github.com/sopanjadhav07/maven-project.git'	
+pipeline {
+     agent any
+     stages {
+          stage("Validate code") {
+		  
+              steps {
+			  withMaven(maven: 'Local_Maven'){
+			  
+                    sh "mvn compile"
+               }
+          }
+		  }
+		  }
+         
+{		  
+stage("SonarQube analysis and install") {
+     steps {
+	 withSonarQubeEnv ('sonar'){
+	 withMaven(maven: 'Local_Maven'){
+          sh "mvn install sonar:sonar"
+     }
 }
 }
 
-{
-stage('code test') 
-{
-
-steps 
-{
-withMaven(maven: 'Local_Maven') 
-{
-     sh 'mvn test'
-}	 
-}
-}	
-}
-
-{
-stage('code package') 
-{
-
-steps 
-{
-withMaven(maven: 'Local_Maven') 
-{
-     sh 'mvn package'
-}
-}
-} 
-}
-
-
-{
-stage('code deploy') 
-{
-
-steps 
-{
-withMaven(maven: 'Local_Maven') 
-{
-     sh 'mvn deploy'
-}
-}
-}
-}
-
-{
-stage ('SonarQube analysis')
-
-steps {
-     withSonarQubeEnv(sonar: 'sonar') {
-	 sh 'mvn install sonar:sonar'
-    
-}
-}
-}
-
-{
-stage ('deploy to tomcat'){
-
-steps {
-  sshagent (['172.31.39.232']) {
-    sh 'scp -o StrictHostKeyChecking=no */target/*.war ec2-user@172.31.39.232:/var/lib/tomcat/webapps'
-  }
-}
 }
 }
 }
