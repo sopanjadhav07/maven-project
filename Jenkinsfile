@@ -2,6 +2,7 @@ pipeline {
      agent any
      stages {
           stage("Validate code") {
+		  agent 'label'{
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
@@ -9,6 +10,7 @@ pipeline {
                     sh "mvn compile"
                }
           }
+		  }
 		  }
 		  }
          
