@@ -1,21 +1,18 @@
 pipeline {
      agent any
-     stages {
-	 {
-	stage ('scm checkout')
-{
-git 'https://github.com/sopanjadhav07/maven-project.git'	
-}
-}
+		stages {
+			{
+				stage ('scm checkout')
+					{
+						git 'https://github.com/sopanjadhav07/maven-project.git'	
+					}
+			}
 		{	
           stage('Validate code') 
-		  
-			{
-		  
-              steps {
-				withMaven(maven: 'Local_Maven'){
-					agent label java
-						sh "mvn clean compile"
+		  	{
+				steps {
+					withMaven(maven: 'Local_Maven'){
+							sh "mvn clean compile"
 							}
 					}
 			}
