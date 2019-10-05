@@ -7,17 +7,18 @@ pipeline {
 git 'https://github.com/sopanjadhav07/maven-project.git'	
 }
 }
-	
+		{	
           stage('Validate code') 
 		  
-		  {
+			{
 		  
               steps {
-			  withMaven(maven: 'Local_Maven'){
-		          agent label java
-		          sh "mvn clean compile"
-               }
-          }
-		  }
-		  }
-		  }
+				withMaven(maven: 'Local_Maven'){
+					agent label java
+						sh "mvn clean compile"
+							}
+					}
+			}
+		}
+	}
+}
