@@ -1,5 +1,6 @@
 pipeline {
      agent any
+	 
 		stages {
 				stage ('scm checkout')
 					{
@@ -13,6 +14,8 @@ pipeline {
 				steps {
 					withMaven(maven: 'Local_Maven'){
 							sh "mvn clean compile"
+							agent label java
+							
 							}
 					}
 			}
