@@ -1,6 +1,12 @@
 pipeline {
      agent any
      stages {
+	 {
+	stage ('scm checkout')
+{
+git 'https://github.com/sopanjadhav07/maven-project.git'	
+}
+}
 	
           stage('Validate code') 
 		  
@@ -8,11 +14,10 @@ pipeline {
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
-				  agent {label 'java'}
+		          agent label java
 		          sh "mvn clean compile"
                }
           }
 		  }
 		  }
 		  }
-		  
