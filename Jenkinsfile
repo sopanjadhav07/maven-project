@@ -6,7 +6,7 @@ pipeline {
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
-				  agent 'label'{
+				  agent 'java'{
 			  
                     sh "mvn compile"
                }
