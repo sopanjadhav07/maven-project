@@ -5,6 +5,7 @@ pipeline {
 					{
 						git 'https://github.com/sopanjadhav07/maven-project.git'	
 					}
+				}	
 			
 		{	
           stage('Validate code') 
@@ -16,5 +17,5 @@ pipeline {
 					}
 			}
 		}
-	}
+	
 }
