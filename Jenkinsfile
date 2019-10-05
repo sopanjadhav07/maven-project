@@ -5,12 +5,13 @@ pipeline {
 		  {
 		  
               steps {
-		      withMaven(maven: 'Local_Maven'){
+			  withMaven(maven: 'Local_Maven'){
+				  agent 'label'{
 			  
                     sh "mvn compile"
                }
           }
 		  }
 		  }
-}
-		  
+		  }
+		  }
