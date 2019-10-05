@@ -8,10 +8,8 @@ pipeline {
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
-				  agent label java
-				  
-			  
-                    sh "mvn clean compile"
+		          agent label java
+		          sh "mvn clean compile"
                }
           }
 		  }
