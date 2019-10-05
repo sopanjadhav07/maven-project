@@ -8,13 +8,13 @@ pipeline {
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
-				  agent 'java' {
+				  agent 'java'
 				  
 			  
-                    sh "mvn compile"
+                    sh "mvn clean compile"
                }
           }
 		  }
 		  }
 		  }
-		  }
+		  
