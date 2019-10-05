@@ -13,7 +13,7 @@ pipeline {
           }
 		  }
 		  }
-		  }
+		  
          
 {		  
 stage("SonarQube analysis and install") {
