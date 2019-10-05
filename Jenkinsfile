@@ -2,7 +2,7 @@ pipeline {
      agent any
      stages {
 	 agent java
-          stage("Validate code") 
+          stage('Validate code') 
 		  
 		  {
 		  
