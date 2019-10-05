@@ -1,13 +1,14 @@
 pipeline {
      agent any
      stages {
-	 agent java
+	
           stage('Validate code') 
 		  
 		  {
 		  
               steps {
 			  withMaven(maven: 'Local_Maven'){
+				  agent java
 				  
 			  
                     sh "mvn compile"
