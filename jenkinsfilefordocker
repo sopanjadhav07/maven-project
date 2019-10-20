@@ -8,4 +8,24 @@ pipeline{
 	}
     }	
 	}
-	}
+	
+	
+	{
+	 stage('package')
+	                 {
+					 steps{
+					       sh label: '', script: 'mvn clean package'
+						   }
+					}
+    }
+
+
+    {
+     stage('docker image build')
+     {
+        steps{
+                sh label: '', script: 'docker build -t mydockimage/sopanjadhav07:latest'
+			}
+    }
+    }
+}	
