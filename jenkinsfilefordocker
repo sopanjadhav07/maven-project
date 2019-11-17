@@ -14,7 +14,7 @@ pipeline{
 	 stage('package')
 	                 {
 					 steps{
-					       sh label: '', script: 'mvn clean package'
+					       sh 'mvn clean package'
 						   }
 					}
     }
@@ -24,7 +24,7 @@ pipeline{
      stage('docker image build')
      {
         steps{
-                sh label: '', script: 'docker build -t mydockimage/sopanjadhav07:latest'
+                sh 'docker build -t sopanjadhav07/mydockimage:latest'
 			}
     }
     }
