@@ -1,31 +1,20 @@
-pipeline{
-    agentany{
-	
-	{
-	stages{
+node{
 	        stage('SCM checkout')
 			        {git 'https://github.com/sopanjadhav07/maven-project/new/master'}
 	}
-    }	
-	}
+    
 	
 	
-	{
-	 stage('package')
-	                 {
-					 steps{
+	
+	 stage('package'){
 					       sh 'mvn clean package'
 						   }
-					}
-    }
+					
+    
 
 
-    {
+    
      stage('docker image build')
-     {
-        steps{
-                sh 'docker build -t sopanjadhav/maven-project'
+	 {
+                sh 'docker build -t sopanjadhav/maven-project .'
 			}
-    }
-    }
-}
