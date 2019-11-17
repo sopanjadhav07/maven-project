@@ -24,8 +24,8 @@ pipeline{
      stage('docker image build')
      {
         steps{
-                sh 'docker build -t sopanjadhav07/mydockimage:latest'
+                sh 'docker build -t sopanjadhav/maven-project'
 			}
     }
     }
-}	
+}
