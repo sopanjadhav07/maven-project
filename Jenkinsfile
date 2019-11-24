@@ -15,3 +15,15 @@ node{
                 sh 'docker build -t sopanjadhav/myrepo:1.0.0 .'
 			}
 			}
+
+node{
+stage
+     {withCredentials([string(credentialsId: 'dockerHubaccount', variable: 'dockerHubaccount')])
+	 {
+    sh "docker login -u sopanjadhav -p Snehal@143"
+}
+
+sh "docker push sopanjadhav/myrepo:1.0.0"
+
+}
+}
