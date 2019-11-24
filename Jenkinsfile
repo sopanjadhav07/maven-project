@@ -9,3 +9,9 @@ node{
 					       sh 'mvn clean package'
 						   }
 		}
+node{
+     stage('docker image build')
+	 {
+                sh 'docker build -t sopanjadhav/mydockerimage .'
+			}
+			}
