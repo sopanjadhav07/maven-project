@@ -18,7 +18,7 @@ node{
 
 node{
 stage('Docker push image')
-     {withCredentials([string(credentialsId: 'dockerHubaccount', variable: 'dockerHubaccount')])
+     {withCredentials([usernameColonPassword(credentialsId: 'dockerHubaccount', variable: 'dockerHubaccount')])
 	 {
     sh "docker login -u sopanjadhav -p $Dockerhubpassword"
 }
