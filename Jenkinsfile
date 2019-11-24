@@ -3,6 +3,9 @@ node{
 			        {git 'https://github.com/sopanjadhav07/maven-project/'}
 	}
 
-stage('package'){
+node{
+	
+	 stage('package'){
 					       sh 'mvn clean package'
 						   }
+		}
