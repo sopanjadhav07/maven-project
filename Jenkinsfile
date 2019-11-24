@@ -12,6 +12,6 @@ node{
 node{
      stage('docker image build')
 	 {
-                sh 'docker build -t sopanjadhav/myrepo .'
+                sh 'docker build -t sopanjadhav/myrepo:1.0.0 .'
 			}
 			}
