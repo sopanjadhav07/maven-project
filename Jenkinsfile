@@ -12,7 +12,7 @@ node{
 node{
      stage('docker image build')
 	 {
-                sh 'docker build -t sopanjadhav/myrepo:1.0.0 .'
+                sh 'docker build -t sopanjadhav/myrepo:1.0.1 .'
 			}
 			}
 
@@ -23,7 +23,7 @@ stage('Docker push image')
     sh "docker login -u sopanjadhav -p $dockerHubaccount"
 }
 
-sh "docker push sopanjadhav/myrepo:1.0.0"
+sh "docker push sopanjadhav/myrepo:1.0.1"
 
 }
 }
