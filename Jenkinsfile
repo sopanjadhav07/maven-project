@@ -1,6 +1,6 @@
 node{
 	        stage('SCM checkout')
-			        {git 'https://github.com/sopanjadhav07/maven-project'}
+			        {git 'https://github.com/sopanjadhav07/maven-project/'}
 	}
 
 node{
@@ -19,9 +19,9 @@ node{
 
 node{
 stage('Docker push image')
-     {withCredentials([string(credentialsId: 'dockerHubaccount', variable: 'dockerHubaccount')]) 
+     {withCredentials([string(credentialsId: 'Dockerhubpassword', variable: 'Dockerhubpassword')]) 
       {
-    sh "docker login -u sopanjadhav -p $dockerHubaccount"
+    sh "docker login -u sopanjadhav -p $Dockerhubpassword"
 }
 
 sh "docker push sopanjadhav/spring-boot-mongo"
