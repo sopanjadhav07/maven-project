@@ -28,3 +28,6 @@ sh "docker push sopanjadhav/spring-boot-mongo"
 }
 }
 
+stage("Deploy To Kuberates Cluster"){
+        kubernetesDeploy(configs: 'springBootMongo.yml', kubeconfigId: 'KUBERNETES_CLUSTER_CONFIG',enableConfigSubstitution: true)
+     }
